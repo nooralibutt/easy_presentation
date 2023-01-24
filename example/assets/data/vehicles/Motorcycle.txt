@@ -1,0 +1,7 @@
+# \n
+- HP: 300
+- Acceleration: 1500
+- Control: 40
+- Speed: 60
+### \n
+A great solo vehicle – it has the best control in the game and you can change direction rapidly anytime you want. The Motorcycle’s top speed is 60, which makes it the second fastest vehicle on the map – it would take you quite a while to get to that speed, however as the acceleration stat is rather low. The size also allows the bike to travel through narrow areas.

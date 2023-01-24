@@ -1,0 +1,7 @@
+# \n
+- HP: 500
+- Acceleration: 2900
+- Control: 15
+- Speed: 40
+### \n
+An upgrade over the Pickup truck. The Jeep has decent protection and can carry a whole team – the third best vehicle on the map. It is somewhat slower than the Pickup Truck, however.
