@@ -1,0 +1,8 @@
+# \n
+##### K ‘CAPTAIN BOOYAH
+K is modelled on DJ KSHMR, the Spinnin’ Records pioneering DJ/Producer.
+While K’s level up unlocks remain a mystery, we do know his passive skill raises his maximum EP to 250. K’s special active skill has two unique modes: Psych Professor and Jiujitsu Master.
+### \n
+##### Special ability
+Psych Professor: EP to HP conversion rate increased by 500% for allies and self within a 6 meters radius
+Jiujitsu Master: Regenerates 2 EP every 2-3 seconds, up to 100-150 EP. The skill has a cooldown of 20 seconds, before forms can be swapped
