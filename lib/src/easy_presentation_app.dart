@@ -1,4 +1,5 @@
 import 'package:easy_presentation/easy_presentation.dart';
+import 'package:easy_presentation/src/easy_presentation_body.dart';
 import 'package:easy_presentation/src/easy_presentation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
