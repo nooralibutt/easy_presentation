@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
       final category = data[i];
       if (category.detailText != null &&
           category.detailText!.startsWith("assets/data/")) {
-        category.detailText = await loadAsset(category.detailText!);
+        category.detailText = await rootBundle.loadString(category.detailText!);
       }
 
       if (category.subCategories != null) {
@@ -73,7 +73,4 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     return data;
   }
-
-  static Future<String> loadAsset(String filePath) =>
-      rootBundle.loadString(filePath);
 }
