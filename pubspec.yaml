@@ -1,5 +1,5 @@
 name: easy_presentation
-description: This package present your data in the form of clean presentation view
+description: This package presents your data in the form of clean presentation view, it also supports simple text, markdown, youtube videos and tabular data form.
 version: 1.0.1
 homepage: https://github.com/nooralibutt/easy_presentation
 repository: https://github.com/nooralibutt/easy_presentation

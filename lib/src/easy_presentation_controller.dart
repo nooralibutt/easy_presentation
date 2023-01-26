@@ -15,22 +15,22 @@ class EasyPresentationController extends InheritedWidget {
     required this.context,
   });
 
-  // This [leadingTitle] will be added before main [title]
+  /// This [leadingTitle] will be added before main [title]
   final String? leadingTitle;
 
-  // This is the main title text
+  /// This is the main title text
   final String? title;
 
-  // This will be added as a background image with blur effect
+  /// This will be added as a background image with blur effect
   final String? bgImage;
 
-  // This is for safe area space
+  /// This is for safe area space
   final bool topSafeArea;
 
-  // This will be need to show the data in the form of presentation
+  /// This will be need to show the data in the form of presentation
   final List<PresentationData> presentationData;
 
-  // Use this to add your custom [MarkdownStyleSheet]
+  /// Use this to add your custom [MarkdownStyleSheet]
   final MarkdownStyleSheet? markdownStyleSheet;
 
   final BuildContext context;
