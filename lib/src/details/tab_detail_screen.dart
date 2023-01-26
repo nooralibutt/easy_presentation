@@ -13,7 +13,7 @@ class TabBarListingScreen extends StatefulWidget {
   const TabBarListingScreen({super.key, required this.data});
 
   @override
-  _TabBarListingScreenState createState() => _TabBarListingScreenState();
+  State<TabBarListingScreen> createState() => _TabBarListingScreenState();
 }
 
 class _TabBarListingScreenState extends State<TabBarListingScreen> {
