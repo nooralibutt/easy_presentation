@@ -22,15 +22,15 @@ class DetailMarkdown extends StatelessWidget {
           markdownImageBuilder(uri, title, alt, context),
       styleSheet: markDownStyle ??
           MarkdownStyleSheet(
-            p: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 16),
+            p: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 16),
             h1: const TextStyle(color: Colors.transparent, height: 1),
             h2: const TextStyle(color: Colors.transparent, height: 0.5),
             h3: const TextStyle(color: Colors.transparent, height: 0.2),
-            h4: Theme.of(context).textTheme.headline5!,
-            h5: Theme.of(context).textTheme.headline6!,
+            h4: Theme.of(context).textTheme.headlineSmall!,
+            h5: Theme.of(context).textTheme.titleLarge!,
             h6: Theme.of(context)
                 .textTheme
-                .headline6!
+                .titleLarge!
                 .copyWith(fontSize: 16, fontWeight: FontWeight.bold),
           ),
     );

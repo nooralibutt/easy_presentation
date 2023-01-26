@@ -18,7 +18,7 @@ class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
   Widget _buildYoutubeWidget(String youtubeLink) {
     final videoId = YoutubePlayer.convertUrlToId(youtubeLink)!;
 
-    YoutubePlayerController _controller = YoutubePlayerController(
+    YoutubePlayerController controller = YoutubePlayerController(
       initialVideoId: videoId,
       flags: const YoutubePlayerFlags(
         autoPlay: true,
@@ -30,11 +30,11 @@ class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
     return Theme(
       data: Theme.of(context).copyWith(
           textTheme: Theme.of(context).textTheme.apply(
-              displayColor: Theme.of(context).backgroundColor,
-              bodyColor: Theme.of(context).backgroundColor)),
+              displayColor: Theme.of(context).colorScheme.background,
+              bodyColor: Theme.of(context).colorScheme.background)),
       child: YoutubePlayerBuilder(
           player: YoutubePlayer(
-            controller: _controller,
+            controller: controller,
           ),
           builder: (context, player) => player),
     );
