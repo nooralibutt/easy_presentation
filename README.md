@@ -15,6 +15,8 @@
 - Sliver app bar
 - Input Json formatted data
 
+![](https://github.com/nooralibutt/easy_presentation/blob/master/demo-gif.gif?raw=true)
+
 ## How to use
 There are two ways to use Easy Presentation.
 
