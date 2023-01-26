@@ -9,7 +9,7 @@ class HomeHeaderText extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = Theme.of(context)
         .textTheme
-        .headline5!
+        .headlineSmall!
         .copyWith(fontWeight: FontWeight.w700);
 
     return FittedBox(

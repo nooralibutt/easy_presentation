@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class YoutubeDetailScreen extends StatefulWidget {
+  static const String routeName = "/YoutubeDetailScreen";
+
   final PresentationData data;
 
   const YoutubeDetailScreen({super.key, required this.data});

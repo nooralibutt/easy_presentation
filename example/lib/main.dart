@@ -55,6 +55,20 @@ class _MyHomePageState extends State<MyHomePage> {
           return const Center(child: CircularProgressIndicator());
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          EasyPresentationApp.launchApp(
+            context,
+            appBar: AppBar(),
+            title: 'Data',
+            leadingTitle: 'Mock',
+            presentationData: modelData,
+          );
+          setState(() {});
+        },
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
     );
   }
 
@@ -64,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
       final category = data[i];
       if (category.detailText != null &&
           category.detailText!.startsWith("assets/data/")) {
-        category.detailText = await loadAsset(category.detailText!);
+        category.detailText = await rootBundle.loadString(category.detailText!);
       }
 
       if (category.subCategories != null) {
@@ -73,7 +87,4 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     return data;
   }
-
-  static Future<String> loadAsset(String filePath) =>
-      rootBundle.loadString(filePath);
 }

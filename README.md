@@ -1,39 +1,96 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Easy Presentation
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+[![pub package](https://img.shields.io/pub/v/easy_presentation.svg?logo=dart&logoColor=00b9fc)](https://pub.dartlang.org/packages/easy_presentation)
+[![Last Commits](https://img.shields.io/github/last-commit/nooralibutt/easy_presentation?logo=git&logoColor=white)](https://github.com/nooralibutt/easy_presentation/commits/master)
+[![Pull Requests](https://img.shields.io/github/issues-pr/nooralibutt/easy_presentation?logo=github&logoColor=white)](https://github.com/nooralibutt/easy_presentation/pulls)
+[![Code size](https://img.shields.io/github/languages/code-size/nooralibutt/easy_presentation?logo=github&logoColor=white)](https://github.com/nooralibutt/easy_presentation)
+[![License](https://img.shields.io/github/license/nooralibutt/easy_presentation?logo=open-source-initiative&logoColor=green)](https://github.com/nooralibutt/easy_presentation/blob/master/LICENSE)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+**Show some 💙, 👍 the package & ⭐️ the repo to support the project**
 
 ## Features
+- Support for local and network images
+- Support for youtube videos
+- Support for Markdown
+- Sliver app bar
+- Input Json formatted data
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## How to use
+There are two ways to use Easy Presentation.
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+### 1: Stand-Alone App mode
 
 ```dart
-const like = 'sample';
+EasyPresentationApp.launchApp(
+  context,
+  presentationData: PresentationData(),
+  title: 'Title',
+  bgImage: 'https://nicolasgallagher.com/flexible-css-cover-images/cover.jpg',
+);
 ```
 
-## Additional information
+### 2: Add to Widget-Tree
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+EasyPresentationApp(
+  title: 'Title',
+  bgImage: 'https://nicolasgallagher.com/flexible-css-cover-images/cover.jpg',
+  presentationData: PresentationData(),
+);
+```
+
+## Additional Info
+
+### Data Model
+Prepare model list and pass it to the `EasyPresentationApp()` widget.
+
+```dart
+final presentationData = [
+  PresentationData(
+    title: 'Lorem Ipsum',
+    imgSrc: 'assets/images/home/tips.jpg',
+    youtubeLink: "https://youtu.be/YGbiPnxUG9U",
+    detailText: 'Lorem Ipsum is simply dummy text ....',
+  ),
+  PresentationData(
+    title: 'Lorem Ipsum',
+    imgSrc: 'https://nicolasgallagher.com/flexible-css-cover-images/cover.jpg',
+    detailText: 'Lorem Ipsum is simply dummy text ....',
+  ),
+  PresentationData(
+    title: 'Lorem Ipsum',
+    imgSrc: 'https://nicolasgallagher.com/flexible-css-cover-images/cover.jpg',
+    subCategories: [
+      PresentationData(
+        title: 'Lorem Ipsum',
+        imgSrc: 'https://nicolasgallagher.com/flexible-css-cover-images/cover.jpg',
+        youtubeLink: "https://youtu.be/YGbiPnxUG9U",
+        detailText: 'Lorem Ipsum is simply dummy text ....',
+      ),
+      PresentationData(
+        title: 'Lorem Ipsum',
+        imgSrc: 'assets/images/home/tips.jpg',
+        imageMode: ImageMode.landscape.name,
+        youtubeLink: "https://youtu.be/YGbiPnxUG9U",
+        detailText: 'Lorem Ipsum is simply dummy text ....',
+      ),
+      PresentationData(
+        title: 'Lorem Ipsum',
+        imgSrc: 'https://nicolasgallagher.com/flexible-css-cover-images/cover.jpg',
+        youtubeLink: "https://youtu.be/YGbiPnxUG9U",
+        detailText: 'Lorem Ipsum is simply dummy text ....',
+      ),
+    ],
+  ),
+];
+```
+
+See [Example](https://pub.dev/packages/easy_presentation/example) for better understanding.
+
+## Authors
+##### Noor Ali Butt
+[![GitHub Follow](https://img.shields.io/badge/Connect--blue.svg?logo=Github&longCache=true&style=social&label=Follow)](https://github.com/nooralibutt) [![LinkedIn Link](https://img.shields.io/badge/Connect--blue.svg?logo=linkedin&longCache=true&style=social&label=Connect
+)](https://www.linkedin.com/in/nooralibutt)
+##### Hanzla Waheed
+[![GitHub Follow](https://img.shields.io/badge/Connect--blue.svg?logo=Github&longCache=true&style=social&label=Follow)](https://github.com/mhanzla80) [![LinkedIn Link](https://img.shields.io/badge/Connect--blue.svg?logo=linkedin&longCache=true&style=social&label=Connect
+)](https://www.linkedin.com/in/mhanzla80)
