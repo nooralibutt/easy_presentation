@@ -25,11 +25,6 @@ final jsonWithMarkdown = [
         "title": "Motorcycle",
         "imgSrc": "assets/images/vehicles/image30.png",
         "detailText": "assets/data/vehicles/Motorcycle.txt"
-      },
-      {
-        "title": "Sports Car",
-        "imgSrc": "assets/images/vehicles/image27.png",
-        "detailText": "assets/data/vehicles/Sports car.txt"
       }
     ]
   },
@@ -46,12 +41,6 @@ final jsonWithMarkdown = [
         "title": "LUQUETA",
         "imgSrc": "assets/images/characters/image19.jpg",
         "detailText": "assets/data/characters/LUQUETA.txt"
-      },
-      {
-        "title": "WOLFRAHH",
-        "imgSrc": "assets/images/characters/image9.jpg",
-        "imageMode": "portrait",
-        "detailText": "assets/data/characters/WOLFRAHH.txt"
       }
     ]
   }
@@ -61,7 +50,7 @@ final jsonMockData = [
   {
     "title": "Title",
     "imgSrc":
-        "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png",
+        "https://nicolasgallagher.com/flexible-css-cover-images/cover.jpg",
     "detailText": "Lorem Ipsum is simply dummy text ...",
   },
   {
@@ -83,11 +72,6 @@ final jsonMockData = [
         "title": "Motorcycle",
         "imgSrc": "assets/images/vehicles/image30.png",
         "detailText": "Lorem Ipsum is simply dummy text ...",
-      },
-      {
-        "title": "Sports Car",
-        "imgSrc": "assets/images/vehicles/image27.png",
-        "detailText": "Lorem Ipsum is simply dummy text ...",
       }
     ]
   },
@@ -105,12 +89,6 @@ final jsonMockData = [
         "title": "LUQUETA",
         "imgSrc": "assets/images/characters/image19.jpg",
         "detailText": "Lorem Ipsum is simply dummy text ...",
-      },
-      {
-        "title": "WOLFRAHH",
-        "imgSrc": "assets/images/characters/image9.jpg",
-        "imageMode": "portrait",
-        "detailText": "Lorem Ipsum is simply dummy text ...",
       }
     ]
   }
@@ -124,33 +102,25 @@ final modelData = [
   ),
   PresentationData(
     title: "Lorem Ipsum",
-    imgSrc:
-        "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png",
+    imgSrc: "https://nicolasgallagher.com/flexible-css-cover-images/cover.jpg",
     youtubeLink: "https://youtu.be/YGbiPnxUG9U",
     detailText: "Lorem Ipsum is simply dummy text ...",
   ),
   PresentationData(
     title: "Lorem Ipsum",
-    imgSrc:
-        "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png",
+    imgSrc: "https://nicolasgallagher.com/flexible-css-cover-images/cover.jpg",
     youtubeLink: "https://youtu.be/YGbiPnxUG9U",
     subCategories: [
       PresentationData(
         title: "Lorem Ipsum",
         imgSrc:
-            "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png",
+            "https://nicolasgallagher.com/flexible-css-cover-images/cover.jpg",
         detailText: "Lorem Ipsum is simply dummy text ...",
       ),
       PresentationData(
         title: "Lorem Ipsum",
         imgSrc: "assets/images/home/tips.jpg",
         youtubeLink: "https://youtu.be/YGbiPnxUG9U",
-        detailText: "Lorem Ipsum is simply dummy text ...",
-      ),
-      PresentationData(
-        title: "Lorem Ipsum",
-        imgSrc:
-            "https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png",
         detailText: "Lorem Ipsum is simply dummy text ...",
       ),
     ],

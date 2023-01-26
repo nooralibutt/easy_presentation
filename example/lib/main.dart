@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder<List<PresentationData>>(
-        future: loadAllData(PresentationData.fromJsonList(jsonMockData)),
+        future: loadAllData(PresentationData.fromJsonList(jsonWithMarkdown)),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.data == null) {
