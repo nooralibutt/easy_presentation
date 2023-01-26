@@ -55,6 +55,19 @@ class _MyHomePageState extends State<MyHomePage> {
           return const Center(child: CircularProgressIndicator());
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          EasyPresentationApp.launchApp(
+            context,
+            title: 'Data',
+            leadingTitle: 'Mock',
+            presentationData: modelData,
+          );
+          setState(() {});
+        },
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
     );
   }
 

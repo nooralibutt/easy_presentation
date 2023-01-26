@@ -4,6 +4,8 @@ import 'package:easy_presentation/src/widgets/detail_markdown.dart';
 import 'package:flutter/material.dart';
 
 class CoverDetailScreen extends StatelessWidget {
+  static const routeName = "/coverDetailScreen";
+
   final PresentationData data;
   const CoverDetailScreen({super.key, required this.data});
 
@@ -22,7 +24,7 @@ class CoverDetailScreen extends StatelessWidget {
                     expandedHeight: 200,
                     flexibleSpace: FlexibleSpaceBar(
                       titlePadding: const EdgeInsets.only(bottom: 12, left: 72),
-                      title: Text(data.title ?? 'N/A'),
+                      title: Text(data.title),
                       background: Stack(
                         fit: StackFit.expand,
                         children: [

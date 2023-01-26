@@ -7,6 +7,8 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import '../widgets/custom_widgets.dart';
 
 class TabBarListingScreen extends StatefulWidget {
+  static const String routeName = "/TabBarListingScreen";
+
   final PresentationData data;
   const TabBarListingScreen({super.key, required this.data});
 

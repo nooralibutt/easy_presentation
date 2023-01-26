@@ -26,8 +26,8 @@ class DetailMarkdown extends StatelessWidget {
             h1: const TextStyle(color: Colors.transparent, height: 1),
             h2: const TextStyle(color: Colors.transparent, height: 0.5),
             h3: const TextStyle(color: Colors.transparent, height: 0.2),
-            h4: Theme.of(context).textTheme.headline5!.copyWith(),
-            h5: Theme.of(context).textTheme.headline6!.copyWith(),
+            h4: Theme.of(context).textTheme.headline5!,
+            h5: Theme.of(context).textTheme.headline6!,
             h6: Theme.of(context)
                 .textTheme
                 .headline6!

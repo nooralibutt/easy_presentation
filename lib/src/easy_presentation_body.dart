@@ -9,6 +9,8 @@ import 'package:easy_presentation/src/widgets/presentation_card.dart';
 import 'package:flutter/material.dart';
 
 class EasyPresentationBody extends StatefulWidget {
+  static const String routeName = "/EasyPresentationBody";
+
   const EasyPresentationBody({Key? key}) : super(key: key);
 
   @override
@@ -55,17 +57,16 @@ class _EasyPresentationBodyState extends State<EasyPresentationBody> {
     return widgetList;
   }
 
-  void _onPressDetail(PresentationData category) async {
-    Widget routeToPush;
-    if (category.subCategories != null) {
-      routeToPush = TabBarListingScreen(data: category);
-    } else if (category.youtubeLink != null) {
-      routeToPush = YoutubeDetailScreen(data: category);
+  void _onPressDetail(PresentationData data) {
+    String routeToPush;
+    if (data.subCategories != null) {
+      routeToPush = TabBarListingScreen.routeName;
+    } else if (data.youtubeLink != null) {
+      routeToPush = YoutubeDetailScreen.routeName;
     } else {
-      routeToPush = CoverDetailScreen(data: category);
+      routeToPush = CoverDetailScreen.routeName;
     }
 
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => routeToPush));
+    Navigator.pushNamed(context, routeToPush, arguments: data);
   }
 }
