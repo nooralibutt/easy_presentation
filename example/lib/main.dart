@@ -59,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () async {
           EasyPresentationApp.launchApp(
             context,
+            appBar: AppBar(),
             title: 'Data',
             leadingTitle: 'Mock',
             presentationData: modelData,
