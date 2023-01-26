@@ -31,6 +31,7 @@ class EasyPresentationApp extends StatelessWidget {
       presentationData: presentationData,
       leadingTitle: leadingTitle,
       title: title,
+      context: context,
       bgImage: bgImage,
       topSafeArea: topSafeArea,
       markdownStyleSheet: markdownStyleSheet,
@@ -62,7 +63,6 @@ class EasyPresentationApp extends StatelessWidget {
     BuildContext context, {
     required List<PresentationData> presentationData,
     MarkdownStyleSheet? markdownStyleSheet,
-    AppBar? appBar,
     String? leadingTitle,
     String? title,
     String? bgImage,
@@ -70,8 +70,8 @@ class EasyPresentationApp extends StatelessWidget {
   }) =>
       Navigator.of(context).push(
         MaterialPageRoute(
+          fullscreenDialog: true,
           builder: (context) => Scaffold(
-            appBar: appBar,
             body: EasyPresentationApp(
               leadingTitle: leadingTitle,
               title: title,

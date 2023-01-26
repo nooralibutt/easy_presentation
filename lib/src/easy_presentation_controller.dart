@@ -12,6 +12,7 @@ class EasyPresentationController extends InheritedWidget {
     required this.presentationData,
     this.markdownStyleSheet,
     required super.child,
+    required this.context,
   });
 
   final String? leadingTitle;
@@ -20,6 +21,7 @@ class EasyPresentationController extends InheritedWidget {
   final bool topSafeArea;
   final List<PresentationData> presentationData;
   final MarkdownStyleSheet? markdownStyleSheet;
+  final BuildContext context;
 
   static EasyPresentationController? maybeOf(BuildContext context) {
     return context

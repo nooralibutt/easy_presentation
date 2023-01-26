@@ -56,15 +56,15 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
+        onPressed: () {
           EasyPresentationApp.launchApp(
             context,
-            appBar: AppBar(),
             title: 'Data',
+            bgImage:
+                'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=576&q=80',
             leadingTitle: 'Mock',
             presentationData: modelData,
           );
-          setState(() {});
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
