@@ -8,12 +8,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
 class EasyPresentationApp extends StatelessWidget {
-  final List<PresentationData> presentationData;
-  final MarkdownStyleSheet? markdownStyleSheet;
+  // This [leadingTitle] will be added before main [title]
   final String? leadingTitle;
+
+  // This is the main title text
   final String? title;
+
+  // This will be added as a background image with blur effect
   final String? bgImage;
+
+  // This is for safe area space
   final bool topSafeArea;
+
+  // This will be need to show the data in the form of presentation
+  final List<PresentationData> presentationData;
+
+  // Use this to add your custom [MarkdownStyleSheet]
+  final MarkdownStyleSheet? markdownStyleSheet;
 
   const EasyPresentationApp({
     Key? key,
@@ -35,6 +46,7 @@ class EasyPresentationApp extends StatelessWidget {
       bgImage: bgImage,
       topSafeArea: topSafeArea,
       markdownStyleSheet: markdownStyleSheet,
+      // Package has its own navigation
       child: Navigator(
         initialRoute: EasyPresentationBody.routeName,
         onGenerateRoute: (settings) {
@@ -61,12 +73,23 @@ class EasyPresentationApp extends StatelessWidget {
 
   static void launchApp(
     BuildContext context, {
-    required List<PresentationData> presentationData,
-    MarkdownStyleSheet? markdownStyleSheet,
-    String? leadingTitle,
-    String? title,
-    String? bgImage,
-    bool topSafeArea = true,
+    // This [leadingTitle] will be added before main [title]
+    final String? leadingTitle,
+
+    // This is the main title text
+    final String? title,
+
+    // This will be added as a background image with blur effect
+    final String? bgImage,
+
+    // This is for safe area space
+    final bool topSafeArea = true,
+
+    // This will be need to show the data in the form of presentation
+    required final List<PresentationData> presentationData,
+
+    // Use this to add your custom [MarkdownStyleSheet]
+    final MarkdownStyleSheet? markdownStyleSheet,
   }) =>
       Navigator.of(context).push(
         MaterialPageRoute(
