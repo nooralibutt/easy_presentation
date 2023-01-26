@@ -59,7 +59,8 @@ class TabDetailWidget extends StatelessWidget {
       child: Column(
         children: [
           const VerticalSpacing(),
-          Text(category.title, style: Theme.of(context).textTheme.headline4),
+          Text(category.title,
+              style: Theme.of(context).textTheme.headlineMedium),
           const VerticalSpacing(),
           category.youtubeLink == null
               ? _buildCoverImage(context)
@@ -108,8 +109,8 @@ class TabDetailWidget extends StatelessWidget {
     return Theme(
       data: Theme.of(context).copyWith(
           textTheme: Theme.of(context).textTheme.apply(
-              displayColor: Theme.of(context).backgroundColor,
-              bodyColor: Theme.of(context).backgroundColor)),
+              displayColor: Theme.of(context).colorScheme.background,
+              bodyColor: Theme.of(context).colorScheme.background)),
       child: YoutubePlayerBuilder(
           player: YoutubePlayer(
             controller: controller,

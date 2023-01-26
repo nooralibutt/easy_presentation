@@ -36,7 +36,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder<List<PresentationData>>(
-        future: loadAllData(PresentationData.fromJsonList(jsonMockData)),
+        /// Load markdown (.txt) files data
+        future: loadAllData(PresentationData.fromJsonList(jsonWithMarkdown)),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.data == null) {
@@ -56,15 +57,16 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
+        onPressed: () {
+          /// Use this [EasyPresentationApp.launchApp()] to launch as a standalone app
           EasyPresentationApp.launchApp(
             context,
-            appBar: AppBar(),
             title: 'Data',
+            bgImage:
+                'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=576&q=80',
             leadingTitle: 'Mock',
             presentationData: modelData,
           );
-          setState(() {});
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
@@ -72,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  /// Use this to load your markdown (.txt) files
   static Future<List<PresentationData>> loadAllData(
       List<PresentationData> data) async {
     for (int i = 0; i < data.length; i++) {
