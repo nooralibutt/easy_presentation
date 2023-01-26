@@ -11,7 +11,7 @@ class YoutubeDetailScreen extends StatefulWidget {
   const YoutubeDetailScreen({super.key, required this.data});
 
   @override
-  _YoutubeDetailScreenState createState() => _YoutubeDetailScreenState();
+  State<YoutubeDetailScreen> createState() => _YoutubeDetailScreenState();
 }
 
 class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
