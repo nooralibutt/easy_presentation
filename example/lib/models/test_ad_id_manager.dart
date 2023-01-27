@@ -25,14 +25,11 @@ class TestAdIdManager extends IAdIdManager {
       );
 
   @override
-  AppAdIds? get appLovinAdIds => AppAdIds(
-        appId:
-            'OeKTS4Zl758OIlAs3KQ6-3WE1IkdOo3nQNJtRubTzlyFU76TRWeQZAeaSMCr9GcZdxR4p2cnoZ1Gg7p7eSXCdA',
-        bannerId: Platform.isAndroid ? 'b2c4f43d3986bcfb' : '80c269494c0e45c2',
-        interstitialId:
-            Platform.isAndroid ? 'c48f54c6ce5ff297' : 'e33147110a6d12d2',
-        rewardedId:
-            Platform.isAndroid ? 'ffbed216d19efb09' : 'f4af3e10dd48ee4f',
+  AppAdIds? get appLovinAdIds => const AppAdIds(
+        appId: 'APPLOVIN_SDK_KEY',
+        bannerId: 'YOUR_AD_UNIT_ID',
+        interstitialId: 'YOUR_AD_UNIT_ID',
+        rewardedId: 'YOUR_AD_UNIT_ID',
       );
 
   @override
