@@ -1,9 +1,22 @@
+import 'package:easy_ads_flutter/easy_ads_flutter.dart';
 import 'package:easy_presentation/easy_presentation.dart';
 import 'package:example/models/mock_data.dart';
+import 'package:example/models/test_ad_id_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await EasyAds.instance.initialize(
+    const TestAdIdManager(),
+    isAgeRestrictedUserForApplovin: true,
+    admobConfiguration: RequestConfiguration(
+        testDeviceIds: [], maxAdContentRating: MaxAdContentRating.pg),
+    adMobAdRequest:
+        const AdRequest(nonPersonalizedAds: true, keywords: <String>[]),
+  );
+
   runApp(const MyApp());
 }
 
@@ -33,6 +46,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
+  void initState() {
+    super.initState();
+    EasyAds.instance.loadAd();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder<List<PresentationData>>(
@@ -50,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               bgImage:
                   'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=576&q=80',
               presentationData: snapshot.data!,
+              onTapEvent: _handleEventActions,
             );
           }
 
@@ -66,12 +86,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=576&q=80',
             leadingTitle: 'Mock',
             presentationData: modelData,
+            onTapEvent: _handleEventActions,
           );
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  void _handleEventActions(BuildContext context, EventAction event) {
+    if (event == EventAction.cardTap) {
+      EasyAds.instance.showAd(AdUnitType.interstitial);
+    } else if (event == EventAction.backTap) {
+      print('Back Pressed');
+    } else if (event == EventAction.tabBarTap) {
+      print('TabBar Changed');
+    } else if (event == EventAction.tabChanged) {
+      print('Tab Swiped');
+    }
   }
 
   /// Use this to load your markdown (.txt) files

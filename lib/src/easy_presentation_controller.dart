@@ -13,6 +13,7 @@ class EasyPresentationController extends InheritedWidget {
     this.markdownStyleSheet,
     required super.child,
     required this.context,
+    this.onTapEvent,
   });
 
   /// This [leadingTitle] will be added before main [title]
@@ -32,6 +33,9 @@ class EasyPresentationController extends InheritedWidget {
 
   /// Use this to add your custom [MarkdownStyleSheet]
   final MarkdownStyleSheet? markdownStyleSheet;
+
+  /// [onTapEvent] will be call on every event preformed by the user
+  final Function(BuildContext, EventAction)? onTapEvent;
 
   final BuildContext context;
 

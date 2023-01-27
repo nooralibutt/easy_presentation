@@ -1,3 +1,4 @@
+import 'package:easy_presentation/src/easy_presentation_controller.dart';
 import 'package:easy_presentation/src/models/presentation_data.dart';
 import 'package:easy_presentation/src/utilities/constants.dart';
 import 'package:easy_presentation/src/widgets/detail_markdown.dart';
@@ -16,17 +17,44 @@ class TabBarListingScreen extends StatefulWidget {
   State<TabBarListingScreen> createState() => _TabBarListingScreenState();
 }
 
-class _TabBarListingScreenState extends State<TabBarListingScreen> {
+class _TabBarListingScreenState extends State<TabBarListingScreen>
+    with SingleTickerProviderStateMixin {
+  TabController? controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller =
+        TabController(length: widget.data.subCategories!.length, vsync: this);
+
+    controller!.addListener(() => EasyPresentationController.of(context)
+        .onTapEvent
+        ?.call(context, EventAction.tabChanged));
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: widget.data.subCategories!.length,
       child: Scaffold(
         appBar: AppBar(
+          leading: BackButton(
+            onPressed: () {
+              EasyPresentationController.of(context)
+                  .onTapEvent
+                  ?.call(context, EventAction.backTap);
+              Navigator.pop(context);
+            },
+          ),
           title: Text(widget.data.title),
           bottom: TabBar(
+            controller: controller,
             isScrollable: true,
-            onTap: (index) {},
+            onTap: (index) {
+              EasyPresentationController.of(context)
+                  .onTapEvent
+                  ?.call(context, EventAction.tabBarTap);
+            },
             tabs: widget.data.subCategories!
                 .map((e) => Tab(text: e.title))
                 .toList(),
@@ -36,6 +64,7 @@ class _TabBarListingScreenState extends State<TabBarListingScreen> {
           children: [
             Expanded(
               child: TabBarView(
+                controller: controller,
                 children: widget.data.subCategories!
                     .map((e) => TabDetailWidget(e))
                     .toList(),

@@ -1,3 +1,4 @@
+import 'package:easy_presentation/src/easy_presentation_controller.dart';
 import 'package:easy_presentation/src/models/presentation_data.dart';
 import 'package:easy_presentation/src/utilities/constants.dart';
 import 'package:easy_presentation/src/widgets/detail_markdown.dart';
@@ -22,6 +23,14 @@ class CoverDetailScreen extends StatelessWidget {
                   SliverAppBar(
                     pinned: true,
                     expandedHeight: 200,
+                    leading: BackButton(
+                      onPressed: () {
+                        EasyPresentationController.of(context)
+                            .onTapEvent
+                            ?.call(context, EventAction.backTap);
+                        Navigator.pop(context);
+                      },
+                    ),
                     flexibleSpace: FlexibleSpaceBar(
                       titlePadding: const EdgeInsets.only(bottom: 12, left: 72),
                       title: Text(data.title),
