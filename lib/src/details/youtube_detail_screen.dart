@@ -47,7 +47,6 @@ class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
 
     return Scaffold(
       body: SafeArea(
-        bottom: false,
         child: Column(
           children: [
             SizedBox(

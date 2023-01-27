@@ -62,19 +62,21 @@ class _TabBarListingScreenState extends State<TabBarListingScreen>
                 .toList(),
           ),
         ),
-        body: Column(
-          children: [
-            const SizedBox(height: 10),
-            controller.placementBuilder!(context, Placement.tabDetailBottom),
-            Expanded(
-              child: TabBarView(
-                controller: tabController,
-                children: widget.data.subCategories!
-                    .map((e) => TabDetailWidget(e))
-                    .toList(),
+        body: SafeArea(
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              controller.placementBuilder!(context, Placement.tabDetailBottom),
+              Expanded(
+                child: TabBarView(
+                  controller: tabController,
+                  children: widget.data.subCategories!
+                      .map((e) => TabDetailWidget(e))
+                      .toList(),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
