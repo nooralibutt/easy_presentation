@@ -2,6 +2,7 @@ import 'package:easy_ads_flutter/easy_ads_flutter.dart';
 import 'package:easy_presentation/easy_presentation.dart';
 import 'package:example/models/mock_data.dart';
 import 'package:example/models/test_ad_id_manager.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -99,30 +100,40 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  /// you can add your own placement widget like this
   Widget _addPlacements(BuildContext context, Placement placement) {
     switch (placement) {
       case Placement.presentationCategoryTop:
         return const EasyBannerAd(adNetwork: AdNetwork.admob);
       case Placement.coverDetailBottom:
-        return const EasyBannerAd(adNetwork: AdNetwork.admob);
+        return Container(height: 50, width: double.infinity, color: Colors.red);
       case Placement.tabDetailBottom:
-        return const EasyBannerAd(adNetwork: AdNetwork.admob);
+        return Container(
+            height: 50, width: double.infinity, color: Colors.green);
       case Placement.youtubeDetailBottom:
-        return const EasyBannerAd(adNetwork: AdNetwork.admob);
+        return Container(
+            height: 50, width: double.infinity, color: Colors.orange);
       default:
         return const SizedBox();
     }
   }
 
+  /// You can handle every action performed by the user like this
   void _handleEventActions(BuildContext context, EventAction event) {
     if (event == EventAction.cardTap) {
       EasyAds.instance.showAd(AdUnitType.interstitial);
     } else if (event == EventAction.backTap) {
-      print('Back Pressed');
+      if (kDebugMode) {
+        print('Back Pressed');
+      }
     } else if (event == EventAction.tabBarTap) {
-      print('TabBar Changed');
+      if (kDebugMode) {
+        print('TabBar Changed');
+      }
     } else if (event == EventAction.tabChanged) {
-      print('Tab Swiped');
+      if (kDebugMode) {
+        print('Tab Swiped');
+      }
     }
   }
 
