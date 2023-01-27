@@ -43,9 +43,10 @@ class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final controller = EasyPresentationController.of(context);
+
     return Scaffold(
       body: SafeArea(
-        bottom: false,
         child: Column(
           children: [
             SizedBox(
@@ -58,8 +59,7 @@ class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
                     alignment: Alignment.topLeft,
                     child: BackButton(
                       onPressed: () {
-                        EasyPresentationController.of(context)
-                            .onTapEvent
+                        controller.onTapEvent
                             ?.call(context, EventAction.backTap);
                         Navigator.pop(context);
                       },
@@ -70,9 +70,17 @@ class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
             ),
             Expanded(
               child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: DetailMarkdown(text: widget.data.detailText),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 10),
+                    if (controller.placementBuilder != null)
+                      controller.placementBuilder!(
+                          context, Placement.youtubeDetailBottom),
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: DetailMarkdown(text: widget.data.detailText),
+                    ),
+                  ],
                 ),
               ),
             ),

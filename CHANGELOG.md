@@ -1,3 +1,7 @@
+## 1.0.2
+* Add Callbacks on actions
+* Add your own placement widgets
+
 ## 1.0.1
 * adds documentation
 * fixes warnings

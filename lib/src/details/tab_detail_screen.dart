@@ -19,58 +19,62 @@ class TabBarListingScreen extends StatefulWidget {
 
 class _TabBarListingScreenState extends State<TabBarListingScreen>
     with SingleTickerProviderStateMixin {
-  TabController? controller;
+  TabController? tabController;
 
   @override
   void initState() {
     super.initState();
-    controller =
+    tabController =
         TabController(length: widget.data.subCategories!.length, vsync: this);
 
-    controller!.addListener(() => EasyPresentationController.of(context)
+    tabController!.addListener(() => EasyPresentationController.of(context)
         .onTapEvent
         ?.call(context, EventAction.tabChanged));
   }
 
   @override
   Widget build(BuildContext context) {
+    final controller = EasyPresentationController.of(context);
+
     return DefaultTabController(
       length: widget.data.subCategories!.length,
       child: Scaffold(
         appBar: AppBar(
           leading: BackButton(
             onPressed: () {
-              EasyPresentationController.of(context)
-                  .onTapEvent
-                  ?.call(context, EventAction.backTap);
+              controller.onTapEvent?.call(context, EventAction.backTap);
               Navigator.pop(context);
             },
           ),
           title: Text(widget.data.title),
           bottom: TabBar(
-            controller: controller,
+            controller: tabController,
             isScrollable: true,
             onTap: (index) {
-              EasyPresentationController.of(context)
-                  .onTapEvent
-                  ?.call(context, EventAction.tabBarTap);
+              controller.onTapEvent?.call(context, EventAction.tabBarTap);
             },
             tabs: widget.data.subCategories!
                 .map((e) => Tab(text: e.title))
                 .toList(),
           ),
         ),
-        body: Column(
-          children: [
-            Expanded(
-              child: TabBarView(
-                controller: controller,
-                children: widget.data.subCategories!
-                    .map((e) => TabDetailWidget(e))
-                    .toList(),
+        body: SafeArea(
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              if (controller.placementBuilder != null)
+                controller.placementBuilder!(
+                    context, Placement.tabDetailBottom),
+              Expanded(
+                child: TabBarView(
+                  controller: tabController,
+                  children: widget.data.subCategories!
+                      .map((e) => TabDetailWidget(e))
+                      .toList(),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
