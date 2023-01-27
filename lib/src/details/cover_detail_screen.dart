@@ -12,6 +12,8 @@ class CoverDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = EasyPresentationController.of(context);
+
     return Scaffold(
       body: SafeArea(
         top: false,
@@ -25,8 +27,7 @@ class CoverDetailScreen extends StatelessWidget {
                     expandedHeight: 200,
                     leading: BackButton(
                       onPressed: () {
-                        EasyPresentationController.of(context)
-                            .onTapEvent
+                        controller.onTapEvent
                             ?.call(context, EventAction.backTap);
                         Navigator.pop(context);
                       },
@@ -62,6 +63,9 @@ class CoverDetailScreen extends StatelessWidget {
                   SliverToBoxAdapter(
                     child: Column(
                       children: [
+                        const SizedBox(height: 10),
+                        controller.placementBuilder!(
+                            context, Placement.coverDetailBottom),
                         Padding(
                           padding:
                               const EdgeInsets.fromLTRB(12.0, 0.0, 12.0, 12.0),

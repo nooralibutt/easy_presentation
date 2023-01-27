@@ -36,6 +36,8 @@ class _EasyPresentationBodyState extends State<EasyPresentationBody> {
                     leadingText: controller.leadingTitle,
                     name: controller.title!),
               ),
+            controller.placementBuilder!(
+                context, Placement.presentationCategoryTop),
             ..._buildCards(context, controller),
             const SizedBox(height: 20),
           ],

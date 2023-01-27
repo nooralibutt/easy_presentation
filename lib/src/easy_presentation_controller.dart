@@ -14,6 +14,7 @@ class EasyPresentationController extends InheritedWidget {
     required super.child,
     required this.context,
     this.onTapEvent,
+    this.placementBuilder,
   });
 
   /// This [leadingTitle] will be added before main [title]
@@ -36,6 +37,9 @@ class EasyPresentationController extends InheritedWidget {
 
   /// [onTapEvent] will be call on every event preformed by the user
   final Function(BuildContext, EventAction)? onTapEvent;
+
+  /// [placementBuilder] is used to build your custom widget at specific places
+  final Widget Function(BuildContext, Placement)? placementBuilder;
 
   final BuildContext context;
 

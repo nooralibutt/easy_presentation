@@ -10,11 +10,14 @@ Future<void> main() async {
 
   await EasyAds.instance.initialize(
     const TestAdIdManager(),
-    isAgeRestrictedUserForApplovin: true,
+    fbiOSAdvertiserTrackingEnabled: true,
+    fbTestMode: true,
+    unityTestMode: true,
+    isAgeRestrictedUserForApplovin: false,
     admobConfiguration: RequestConfiguration(
         testDeviceIds: [], maxAdContentRating: MaxAdContentRating.pg),
     adMobAdRequest:
-        const AdRequest(nonPersonalizedAds: true, keywords: <String>[]),
+        const AdRequest(nonPersonalizedAds: false, keywords: <String>[]),
   );
 
   runApp(const MyApp());
@@ -70,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=576&q=80',
               presentationData: snapshot.data!,
               onTapEvent: _handleEventActions,
+              placementBuilder: _addPlacements,
             );
           }
 
@@ -93,6 +97,21 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  Widget _addPlacements(BuildContext context, Placement placement) {
+    switch (placement) {
+      case Placement.presentationCategoryTop:
+        return const EasyBannerAd(adNetwork: AdNetwork.admob);
+      case Placement.coverDetailBottom:
+        return const EasyBannerAd(adNetwork: AdNetwork.admob);
+      case Placement.tabDetailBottom:
+        return const EasyBannerAd(adNetwork: AdNetwork.admob);
+      case Placement.youtubeDetailBottom:
+        return const EasyBannerAd(adNetwork: AdNetwork.admob);
+      default:
+        return const SizedBox();
+    }
   }
 
   void _handleEventActions(BuildContext context, EventAction event) {

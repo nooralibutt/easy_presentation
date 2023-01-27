@@ -29,6 +29,9 @@ class EasyPresentationApp extends StatelessWidget {
   /// [onTapEvent] will be call on every event preformed by the user
   final Function(BuildContext, EventAction)? onTapEvent;
 
+  /// [placementBuilder] is used to build your custom widget at specific places
+  final Widget Function(BuildContext, Placement)? placementBuilder;
+
   const EasyPresentationApp({
     Key? key,
     required this.presentationData,
@@ -38,6 +41,7 @@ class EasyPresentationApp extends StatelessWidget {
     this.markdownStyleSheet,
     this.topSafeArea = true,
     this.onTapEvent,
+    this.placementBuilder,
   }) : super(key: key);
 
   @override
@@ -51,6 +55,7 @@ class EasyPresentationApp extends StatelessWidget {
       topSafeArea: topSafeArea,
       markdownStyleSheet: markdownStyleSheet,
       onTapEvent: onTapEvent,
+      placementBuilder: placementBuilder,
 
       /// Package has its own navigation
       child: Navigator(
@@ -99,6 +104,9 @@ class EasyPresentationApp extends StatelessWidget {
 
     /// [onTapEvent] will be call on every event preformed by the user
     final Function(BuildContext, EventAction)? onTapEvent,
+
+    /// [placementBuilder] is used to build your custom widget at specific places
+    final Widget Function(BuildContext, Placement)? placementBuilder,
   }) =>
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -112,6 +120,7 @@ class EasyPresentationApp extends StatelessWidget {
               presentationData: presentationData,
               markdownStyleSheet: markdownStyleSheet,
               onTapEvent: onTapEvent,
+              placementBuilder: placementBuilder,
             ),
           ),
         ),

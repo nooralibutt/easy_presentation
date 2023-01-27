@@ -2,6 +2,13 @@ enum ImageMode { portrait, landscape }
 
 enum EventAction { cardTap, backTap, tabBarTap, tabChanged }
 
+enum Placement {
+  presentationCategoryTop,
+  coverDetailBottom,
+  tabDetailBottom,
+  youtubeDetailBottom
+}
+
 class PresentationData {
   String title;
   String imgSrc;
