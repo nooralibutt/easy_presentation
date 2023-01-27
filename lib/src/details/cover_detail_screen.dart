@@ -64,8 +64,9 @@ class CoverDetailScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         const SizedBox(height: 10),
-                        controller.placementBuilder!(
-                            context, Placement.coverDetailBottom),
+                        if (controller.placementBuilder != null)
+                          controller.placementBuilder!(
+                              context, Placement.coverDetailBottom),
                         Padding(
                           padding:
                               const EdgeInsets.fromLTRB(12.0, 0.0, 12.0, 12.0),

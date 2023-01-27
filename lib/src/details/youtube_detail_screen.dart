@@ -73,8 +73,9 @@ class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
                 child: Column(
                   children: [
                     const SizedBox(height: 10),
-                    controller.placementBuilder!(
-                        context, Placement.youtubeDetailBottom),
+                    if (controller.placementBuilder != null)
+                      controller.placementBuilder!(
+                          context, Placement.youtubeDetailBottom),
                     Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: DetailMarkdown(text: widget.data.detailText),

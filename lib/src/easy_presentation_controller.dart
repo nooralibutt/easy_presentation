@@ -2,6 +2,9 @@ import 'package:easy_presentation/src/models/presentation_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
+typedef PlacementBuilder = Widget Function(BuildContext, Placement);
+typedef EventActionCallback = void Function(BuildContext, EventAction);
+
 class EasyPresentationController extends InheritedWidget {
   const EasyPresentationController({
     super.key,
@@ -36,10 +39,10 @@ class EasyPresentationController extends InheritedWidget {
   final MarkdownStyleSheet? markdownStyleSheet;
 
   /// [onTapEvent] will be call on every event preformed by the user
-  final Function(BuildContext, EventAction)? onTapEvent;
+  final EventActionCallback? onTapEvent;
 
   /// [placementBuilder] is used to build your custom widget at specific places
-  final Widget Function(BuildContext, Placement)? placementBuilder;
+  final PlacementBuilder? placementBuilder;
 
   final BuildContext context;
 

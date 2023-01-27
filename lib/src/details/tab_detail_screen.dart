@@ -42,9 +42,7 @@ class _TabBarListingScreenState extends State<TabBarListingScreen>
         appBar: AppBar(
           leading: BackButton(
             onPressed: () {
-              EasyPresentationController.of(context)
-                  .onTapEvent
-                  ?.call(context, EventAction.backTap);
+              controller.onTapEvent?.call(context, EventAction.backTap);
               Navigator.pop(context);
             },
           ),
@@ -53,9 +51,7 @@ class _TabBarListingScreenState extends State<TabBarListingScreen>
             controller: tabController,
             isScrollable: true,
             onTap: (index) {
-              EasyPresentationController.of(context)
-                  .onTapEvent
-                  ?.call(context, EventAction.tabBarTap);
+              controller.onTapEvent?.call(context, EventAction.tabBarTap);
             },
             tabs: widget.data.subCategories!
                 .map((e) => Tab(text: e.title))
@@ -66,7 +62,9 @@ class _TabBarListingScreenState extends State<TabBarListingScreen>
           child: Column(
             children: [
               const SizedBox(height: 10),
-              controller.placementBuilder!(context, Placement.tabDetailBottom),
+              if (controller.placementBuilder != null)
+                controller.placementBuilder!(
+                    context, Placement.tabDetailBottom),
               Expanded(
                 child: TabBarView(
                   controller: tabController,
