@@ -1,5 +1,7 @@
 enum ImageMode { portrait, landscape }
 
+enum EventAction { cardTap, backTap, tabBarTap }
+
 class PresentationData {
   String title;
   String imgSrc;

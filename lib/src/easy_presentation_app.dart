@@ -26,6 +26,9 @@ class EasyPresentationApp extends StatelessWidget {
   /// Use this to add your custom [MarkdownStyleSheet]
   final MarkdownStyleSheet? markdownStyleSheet;
 
+  /// [onTapEvent] will be call on every event preformed by the user
+  final Function(BuildContext, EventAction)? onTapEvent;
+
   const EasyPresentationApp({
     Key? key,
     required this.presentationData,
@@ -34,6 +37,7 @@ class EasyPresentationApp extends StatelessWidget {
     this.bgImage,
     this.markdownStyleSheet,
     this.topSafeArea = true,
+    this.onTapEvent,
   }) : super(key: key);
 
   @override
@@ -46,6 +50,7 @@ class EasyPresentationApp extends StatelessWidget {
       bgImage: bgImage,
       topSafeArea: topSafeArea,
       markdownStyleSheet: markdownStyleSheet,
+      onTapEvent: onTapEvent,
 
       /// Package has its own navigation
       child: Navigator(

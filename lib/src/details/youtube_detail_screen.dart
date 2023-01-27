@@ -1,3 +1,4 @@
+import 'package:easy_presentation/src/easy_presentation_controller.dart';
 import 'package:easy_presentation/src/models/presentation_data.dart';
 import 'package:easy_presentation/src/widgets/detail_markdown.dart';
 import 'package:flutter/material.dart';
@@ -49,19 +50,23 @@ class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.3,
-              child: Stack(fit: StackFit.expand, children: [
-                _buildYoutubeWidget(widget.data.youtubeLink!),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  _buildYoutubeWidget(widget.data.youtubeLink!),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: BackButton(
+                      onPressed: () {
+                        EasyPresentationController.of(context)
+                            .onTapEvent
+                            ?.call(context, EventAction.backTap);
+                        Navigator.pop(context);
+                      },
                     ),
-                    onPressed: () => Navigator.maybePop(context),
                   ),
-                ),
-              ]),
+                ],
+              ),
             ),
             Expanded(
               child: SingleChildScrollView(

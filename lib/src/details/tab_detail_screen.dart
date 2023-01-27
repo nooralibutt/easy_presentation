@@ -1,3 +1,4 @@
+import 'package:easy_presentation/src/easy_presentation_controller.dart';
 import 'package:easy_presentation/src/models/presentation_data.dart';
 import 'package:easy_presentation/src/utilities/constants.dart';
 import 'package:easy_presentation/src/widgets/detail_markdown.dart';
@@ -23,10 +24,22 @@ class _TabBarListingScreenState extends State<TabBarListingScreen> {
       length: widget.data.subCategories!.length,
       child: Scaffold(
         appBar: AppBar(
+          leading: BackButton(
+            onPressed: () {
+              EasyPresentationController.of(context)
+                  .onTapEvent
+                  ?.call(context, EventAction.backTap);
+              Navigator.pop(context);
+            },
+          ),
           title: Text(widget.data.title),
           bottom: TabBar(
             isScrollable: true,
-            onTap: (index) {},
+            onTap: (index) {
+              EasyPresentationController.of(context)
+                  .onTapEvent
+                  ?.call(context, EventAction.tabBarTap);
+            },
             tabs: widget.data.subCategories!
                 .map((e) => Tab(text: e.title))
                 .toList(),

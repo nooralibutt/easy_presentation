@@ -51,13 +51,16 @@ class _EasyPresentationBodyState extends State<EasyPresentationBody> {
       return PresentationCard(
         title: category.title,
         imgSrc: category.imgSrc,
-        onPress: () => _onPressDetail(category),
+        onPress: () => _onPressDetail(category, controller),
       );
     }).toList();
     return widgetList;
   }
 
-  void _onPressDetail(PresentationData data) {
+  void _onPressDetail(
+      PresentationData data, EasyPresentationController controller) {
+    controller.onTapEvent?.call(context, EventAction.cardTap);
+
     String routeToPush;
     if (data.subCategories != null) {
       routeToPush = TabBarListingScreen.routeName;
