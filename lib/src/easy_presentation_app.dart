@@ -96,6 +96,9 @@ class EasyPresentationApp extends StatelessWidget {
 
     /// Use this to add your custom [MarkdownStyleSheet]
     final MarkdownStyleSheet? markdownStyleSheet,
+
+    /// [onTapEvent] will be call on every event preformed by the user
+    final Function(BuildContext, EventAction)? onTapEvent,
   }) =>
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -108,6 +111,7 @@ class EasyPresentationApp extends StatelessWidget {
               topSafeArea: topSafeArea,
               presentationData: presentationData,
               markdownStyleSheet: markdownStyleSheet,
+              onTapEvent: onTapEvent,
             ),
           ),
         ),

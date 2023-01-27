@@ -17,7 +17,21 @@ class TabBarListingScreen extends StatefulWidget {
   State<TabBarListingScreen> createState() => _TabBarListingScreenState();
 }
 
-class _TabBarListingScreenState extends State<TabBarListingScreen> {
+class _TabBarListingScreenState extends State<TabBarListingScreen>
+    with SingleTickerProviderStateMixin {
+  TabController? controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller =
+        TabController(length: widget.data.subCategories!.length, vsync: this);
+
+    controller!.addListener(() => EasyPresentationController.of(context)
+        .onTapEvent
+        ?.call(context, EventAction.tabChanged));
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -34,6 +48,7 @@ class _TabBarListingScreenState extends State<TabBarListingScreen> {
           ),
           title: Text(widget.data.title),
           bottom: TabBar(
+            controller: controller,
             isScrollable: true,
             onTap: (index) {
               EasyPresentationController.of(context)
@@ -49,6 +64,7 @@ class _TabBarListingScreenState extends State<TabBarListingScreen> {
           children: [
             Expanded(
               child: TabBarView(
+                controller: controller,
                 children: widget.data.subCategories!
                     .map((e) => TabDetailWidget(e))
                     .toList(),
