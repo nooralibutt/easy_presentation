@@ -27,10 +27,10 @@ class EasyPresentationApp extends StatelessWidget {
   final MarkdownStyleSheet? markdownStyleSheet;
 
   /// [onTapEvent] will be call on every event preformed by the user
-  final Function(BuildContext, EventAction)? onTapEvent;
+  final Function(BuildContext, PresentationEventAction)? onTapEvent;
 
   /// [placementBuilder] is used to build your custom widget at specific places
-  final Widget Function(BuildContext, Placement)? placementBuilder;
+  final Widget Function(BuildContext, PresentationPlacement)? placementBuilder;
 
   const EasyPresentationApp({
     Key? key,

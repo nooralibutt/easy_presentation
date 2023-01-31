@@ -38,7 +38,7 @@ class _EasyPresentationBodyState extends State<EasyPresentationBody> {
               ),
             if (controller.placementBuilder != null)
               controller.placementBuilder!(
-                  context, Placement.presentationCategoryTop),
+                  context, PresentationPlacement.presentationCategoryTop),
             ..._buildCards(context, controller),
             const SizedBox(height: 20),
           ],
@@ -62,7 +62,7 @@ class _EasyPresentationBodyState extends State<EasyPresentationBody> {
 
   void _onPressDetail(
       PresentationData data, EasyPresentationController controller) {
-    controller.onTapEvent?.call(context, EventAction.cardTap);
+    controller.onTapEvent?.call(context, PresentationEventAction.cardTap);
 
     String routeToPush;
     if (data.subCategories != null) {

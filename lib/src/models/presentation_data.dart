@@ -1,8 +1,8 @@
 enum ImageMode { portrait, landscape }
 
-enum EventAction { cardTap, backTap, tabBarTap, tabChanged }
+enum PresentationEventAction { cardTap, backTap, tabBarTap, tabChanged }
 
-enum Placement {
+enum PresentationPlacement {
   presentationCategoryTop,
   coverDetailBottom,
   tabDetailBottom,
