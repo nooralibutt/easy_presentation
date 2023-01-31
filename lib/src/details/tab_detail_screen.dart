@@ -11,7 +11,9 @@ class TabBarListingScreen extends StatefulWidget {
   static const String routeName = "/TabBarListingScreen";
 
   final PresentationData data;
-  const TabBarListingScreen({super.key, required this.data});
+  final EasyPresentationController controller;
+  const TabBarListingScreen(
+      {super.key, required this.data, required this.controller});
 
   @override
   State<TabBarListingScreen> createState() => _TabBarListingScreenState();
@@ -27,56 +29,56 @@ class _TabBarListingScreenState extends State<TabBarListingScreen>
     tabController =
         TabController(length: widget.data.subCategories!.length, vsync: this);
 
-    tabController!.addListener(() => EasyPresentationController.of(context)
-        .onTapEvent
-        ?.call(context, PresentationEventAction.tabChanged));
+    final controller = widget.controller;
+
+    if (controller.onTapEvent != null) {
+      tabController!.addListener(() {
+        if (tabController?.indexIsChanging == false) {
+          controller.onTapEvent
+              ?.call(context, PresentationEventAction.tabChanged);
+        }
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final controller = EasyPresentationController.of(context);
 
-    return DefaultTabController(
-      length: widget.data.subCategories!.length,
-      child: Scaffold(
-        appBar: AppBar(
-          leading: BackButton(
-            onPressed: () {
-              controller.onTapEvent
-                  ?.call(context, PresentationEventAction.backTap);
-              Navigator.pop(context);
-            },
-          ),
-          title: Text(widget.data.title),
-          bottom: TabBar(
-            controller: tabController,
-            isScrollable: true,
-            onTap: (index) {
-              controller.onTapEvent
-                  ?.call(context, PresentationEventAction.tabBarTap);
-            },
-            tabs: widget.data.subCategories!
-                .map((e) => Tab(text: e.title))
-                .toList(),
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        leading: BackButton(
+          onPressed: () {
+            controller.onTapEvent
+                ?.call(context, PresentationEventAction.backTap);
+            Navigator.pop(context);
+          },
         ),
-        body: SafeArea(
-          child: Column(
-            children: [
-              const SizedBox(height: 10),
-              if (controller.placementBuilder != null)
-                controller.placementBuilder!(
-                    context, PresentationPlacement.tabDetailBottom),
-              Expanded(
-                child: TabBarView(
-                  controller: tabController,
-                  children: widget.data.subCategories!
-                      .map((e) => TabDetailWidget(e))
-                      .toList(),
-                ),
+        title: Text(widget.data.title),
+        bottom: TabBar(
+          controller: tabController,
+          isScrollable: true,
+          tabs: widget.data.subCategories!
+              .map((e) => Tab(text: e.title))
+              .toList(),
+        ),
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            const SizedBox(height: 10),
+            if (controller.placementBuilder != null)
+              controller.placementBuilder!(
+                  context, PresentationPlacement.tabDetailBottom),
+            Expanded(
+              child: TabBarView(
+                controller: tabController,
+                children: widget.data.subCategories!
+                    .map((e) => TabDetailWidget(e))
+                    .toList(),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
