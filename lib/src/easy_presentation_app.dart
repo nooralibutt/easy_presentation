@@ -27,10 +27,10 @@ class EasyPresentationApp extends StatelessWidget {
   final MarkdownStyleSheet? markdownStyleSheet;
 
   /// [onTapEvent] will be call on every event preformed by the user
-  final Function(BuildContext, PresentationEventAction)? onTapEvent;
+  final EventActionCallback? onTapEvent;
 
   /// [placementBuilder] is used to build your custom widget at specific places
-  final Widget Function(BuildContext, PresentationPlacement)? placementBuilder;
+  final PlacementBuilder? placementBuilder;
 
   const EasyPresentationApp({
     Key? key,
@@ -71,8 +71,10 @@ class EasyPresentationApp extends StatelessWidget {
               return _generatePage(YoutubeDetailScreen(
                   data: settings.arguments as PresentationData));
             case TabBarListingScreen.routeName:
-              return _generatePage(TabBarListingScreen(
-                  data: settings.arguments as PresentationData));
+              return MaterialPageRoute(
+                  builder: (context) => TabBarListingScreen(
+                      controller: EasyPresentationController.of(context),
+                      data: settings.arguments as PresentationData));
           }
           return null;
         },

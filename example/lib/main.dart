@@ -124,17 +124,15 @@ class _MyHomePageState extends State<MyHomePage> {
     if (event == PresentationEventAction.cardTap) {
       EasyAds.instance.showAd(AdUnitType.interstitial);
     } else if (event == PresentationEventAction.backTap) {
-      if (kDebugMode) {
-        print('Back Pressed');
-      }
-    } else if (event == PresentationEventAction.tabBarTap) {
-      if (kDebugMode) {
-        print('TabBar Changed');
-      }
+      printLog('Back Pressed');
     } else if (event == PresentationEventAction.tabChanged) {
-      if (kDebugMode) {
-        print('Tab Swiped');
-      }
+      printLog('Tab Swiped');
+    }
+  }
+
+  void printLog(String str) {
+    if (kDebugMode) {
+      print(str);
     }
   }
 
