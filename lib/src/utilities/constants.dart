@@ -1,6 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_presentation/src/widgets/wallpaper_placeholder.dart';
 import 'package:flutter/material.dart';
-import 'package:optimized_cached_image/optimized_cached_image.dart';
 
 final kBorderRadius = BorderRadius.circular(20);
 
@@ -20,7 +20,7 @@ class ImageBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (imgPath.startsWith('http')) {
-      return OptimizedCacheImage(
+      return CachedNetworkImage(
         imageUrl: imgPath,
         placeholder: (_, __) => const WallpaperPlaceholder(),
         errorWidget: (_, __, ___) => const WallpaperPlaceholder(),

@@ -10,6 +10,7 @@ class PresentationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.all(16.0),
       height: 200,
@@ -31,8 +32,8 @@ class PresentationCard extends StatelessWidget {
             ImageBuilder(
               imgPath: imgSrc!,
               fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
+              width: size.width,
+              height: size.height,
             ),
             Align(
               alignment: Alignment.bottomCenter,
