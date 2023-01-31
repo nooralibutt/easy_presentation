@@ -28,8 +28,8 @@ class PresentationCard extends StatelessWidget {
         borderRadius: kBorderRadius,
         child: Stack(
           children: [
-            Image(
-              image: getImage(imgSrc!),
+            ImageBuilder(
+              imgPath: imgSrc!,
               fit: BoxFit.cover,
               width: double.infinity,
               height: double.infinity,
