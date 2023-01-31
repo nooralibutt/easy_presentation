@@ -1,6 +1,6 @@
 name: easy_presentation
 description: This package presents your data in the form of clean presentation view, it also supports simple text, markdown, youtube videos and tabular data form.
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/nooralibutt/easy_presentation
 repository: https://github.com/nooralibutt/easy_presentation
 
@@ -14,7 +14,7 @@ dependencies:
 
   flutter_markdown: ^0.6.13
   youtube_player_flutter: ^8.1.2
-  optimized_cached_image: ^3.0.1
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:

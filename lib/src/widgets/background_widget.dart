@@ -18,18 +18,23 @@ class BlurBackgroundWidget extends StatelessWidget {
     final img = controller.bgImage;
     if (img == null) return child;
 
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: BoxDecoration(
-          image: DecorationImage(image: getImage(img), fit: BoxFit.cover)),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
-        child: Container(
-          color: Colors.black.withOpacity(0.4),
-          child: child,
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        ImageBuilder(
+          imgPath: img,
+          fit: BoxFit.cover,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
         ),
-      ),
+        BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
+          child: Container(
+            color: Colors.black.withOpacity(0.4),
+            child: child,
+          ),
+        ),
+      ],
     );
   }
 }

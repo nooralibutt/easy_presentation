@@ -122,8 +122,8 @@ class TabDetailWidget extends StatelessWidget {
       height: category.imageMode == ImageMode.landscape.name
           ? MediaQuery.of(context).size.height * 0.33
           : MediaQuery.of(context).size.height * 0.4,
-      child: Image(
-        image: getImage(category.imgSrc),
+      child: ImageBuilder(
+        imgPath: category.imgSrc,
         fit: category.imageMode == ImageMode.landscape.name
             ? BoxFit.cover
             : BoxFit.contain,

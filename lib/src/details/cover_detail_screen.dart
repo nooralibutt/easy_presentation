@@ -38,8 +38,8 @@ class CoverDetailScreen extends StatelessWidget {
                       background: Stack(
                         fit: StackFit.expand,
                         children: [
-                          Image(
-                            image: getImage(data.imgSrc),
+                          ImageBuilder(
+                            imgPath: data.imgSrc,
                             fit: BoxFit.cover,
                           ),
                           Align(

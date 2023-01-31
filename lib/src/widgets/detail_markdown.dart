@@ -1,8 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_presentation/src/easy_presentation_controller.dart';
 import 'package:easy_presentation/src/widgets/wallpaper_placeholder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:optimized_cached_image/optimized_cached_image.dart';
 
 class DetailMarkdown extends StatelessWidget {
   const DetailMarkdown({
@@ -38,7 +38,7 @@ class DetailMarkdown extends StatelessWidget {
 
   Widget markdownImageBuilder(
       Uri uri, String? title, String? alt, BuildContext context) {
-    return OptimizedCacheImage(
+    return CachedNetworkImage(
       imageUrl: uri.toString(),
       placeholder: (_, __) => const WallpaperPlaceholder(),
       fit: BoxFit.cover,
