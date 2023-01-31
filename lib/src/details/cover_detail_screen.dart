@@ -28,7 +28,7 @@ class CoverDetailScreen extends StatelessWidget {
                     leading: BackButton(
                       onPressed: () {
                         controller.onTapEvent
-                            ?.call(context, EventAction.backTap);
+                            ?.call(context, PresentationEventAction.backTap);
                         Navigator.pop(context);
                       },
                     ),
@@ -66,7 +66,7 @@ class CoverDetailScreen extends StatelessWidget {
                         const SizedBox(height: 10),
                         if (controller.placementBuilder != null)
                           controller.placementBuilder!(
-                              context, Placement.coverDetailBottom),
+                              context, PresentationPlacement.coverDetailBottom),
                         Padding(
                           padding:
                               const EdgeInsets.fromLTRB(12.0, 0.0, 12.0, 12.0),

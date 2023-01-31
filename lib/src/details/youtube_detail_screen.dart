@@ -60,7 +60,7 @@ class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
                     child: BackButton(
                       onPressed: () {
                         controller.onTapEvent
-                            ?.call(context, EventAction.backTap);
+                            ?.call(context, PresentationEventAction.backTap);
                         Navigator.pop(context);
                       },
                     ),
@@ -75,7 +75,7 @@ class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
                     const SizedBox(height: 10),
                     if (controller.placementBuilder != null)
                       controller.placementBuilder!(
-                          context, Placement.youtubeDetailBottom),
+                          context, PresentationPlacement.youtubeDetailBottom),
                     Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: DetailMarkdown(text: widget.data.detailText),
