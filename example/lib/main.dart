@@ -1,7 +1,6 @@
 import 'package:easy_ads_flutter/easy_ads_flutter.dart';
 import 'package:easy_presentation/easy_presentation.dart';
 import 'package:example/models/mock_data.dart';
-import 'package:example/models/test_ad_id_manager.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,7 +13,6 @@ Future<void> main() async {
     fbiOSAdvertiserTrackingEnabled: true,
     fbTestMode: true,
     unityTestMode: true,
-    isAgeRestrictedUserForApplovin: false,
     admobConfiguration: RequestConfiguration(
         testDeviceIds: [], maxAdContentRating: MaxAdContentRating.pg),
     adMobAdRequest:

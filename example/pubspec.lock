@@ -5,10 +5,10 @@ packages:
     dependency: transitive
     description:
       name: applovin_max
-      sha256: fc2a5efe38e186bec26021c8e0dc7a8fcc107cc3c7d07e5fa08cd3efe2269786
+      sha256: "3e79034a532c86f31cf7177235e54ae314acde63d3667f7aa42c78869d0e2a8a"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.3"
+    version: "4.0.2"
   args:
     dependency: transitive
     description:
@@ -25,14 +25,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
-  audience_network:
-    dependency: transitive
-    description:
-      name: audience_network
-      sha256: aa2c6a2ad7b811e0b509b5c6b6a23793a1d0197b8e797af23f0c24805f8b51da
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.4"
   boolean_selector:
     dependency: transitive
     description:
@@ -97,22 +89,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.5"
   easy_ads_flutter:
     dependency: "direct main"
     description:
       name: easy_ads_flutter
-      sha256: ad07afcfbffa83fc69b3fa354940d6f550da887f1c14cb2aa1bd189c2f093c2f
+      sha256: "4ec500644e00f06d79670afad7f8ebe8f9fa4c2d66fa7cc1816609808d6f2cce"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.1"
+    version: "2.7.0"
+  easy_audience_network:
+    dependency: transitive
+    description:
+      name: easy_audience_network
+      sha256: "5ce4be91e822470997b46c3817c041e2ee8dee36195a8804e209f39cf4cc59e0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.7"
   easy_presentation:
     dependency: "direct main"
     description:
@@ -233,10 +225,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: aeb0b80a8b3709709c9cc496cdc027c5b3216796bc0af0ce1007eaf24464fd4c
+      sha256: "5398f14efa795ffb7a33e9b6a08798b26a180edac4ad7db3f231e40f82ce11e1"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.1"
+    version: "5.0.0"
   flutter_markdown:
     dependency: transitive
     description:
@@ -259,10 +251,10 @@ packages:
     dependency: transitive
     description:
       name: google_mobile_ads
-      sha256: "7a39fe63007764115395550fc3eaf0d469de685298208040138c373d5444ab48"
+      sha256: "4775006383a27a5d86d46f8fb452bfcb17794fc0a46c732979e49a8eb1c8963f"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.0"
+    version: "5.2.0"
   http:
     dependency: transitive
     description:
@@ -307,18 +299,18 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: "5e4a9cd06d447758280a8ac2405101e0e2094d2a1dbdd3756aec3fe7775ba593"
+      sha256: "3315600f3fb3b135be672bf4a178c55f274bebe368325ae18462c89ac1e3b413"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.1"
+    version: "5.0.0"
   logger:
     dependency: transitive
     description:
       name: logger
-      sha256: "5076f09225f91dc49289a4ccb92df2eeea9ea01cf7c26d49b3a1f04c6a49eec1"
+      sha256: "697d067c60c20999686a0add96cf6aba723b3aa1f83ecf806a8097231529ec32"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "2.4.0"
   markdown:
     dependency: transitive
     description:
@@ -560,10 +552,10 @@ packages:
     dependency: transitive
     description:
       name: unity_ads_plugin
-      sha256: e82872d8eedf3b9411ad438c360f68f247149e91f1adde0540b4e13ac111afc3
+      sha256: "53edf3b1d644c0714e70258b022e322c01bdb426a2585afd5c55ca3e2ba73a01"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.7"
+    version: "0.3.21"
   uuid:
     dependency: transitive
     description:
@@ -580,14 +572,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
-  visibility_detector:
-    dependency: transitive
-    description:
-      name: visibility_detector
-      sha256: "15c54a459ec2c17b4705450483f3d5a2858e733aee893dcee9d75fd04814940d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.3"
   vm_service:
     dependency: transitive
     description:
@@ -604,6 +588,38 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  webview_flutter:
+    dependency: transitive
+    description:
+      name: webview_flutter
+      sha256: ec81f57aa1611f8ebecf1d2259da4ef052281cb5ad624131c93546c79ccc7736
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.9.0"
+  webview_flutter_android:
+    dependency: transitive
+    description:
+      name: webview_flutter_android
+      sha256: "47a8da40d02befda5b151a26dba71f47df471cddd91dfdb7802d0a87c5442558"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.16.9"
+  webview_flutter_platform_interface:
+    dependency: transitive
+    description:
+      name: webview_flutter_platform_interface
+      sha256: d937581d6e558908d7ae3dc1989c4f87b786891ab47bb9df7de548a151779d8d
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.10.0"
+  webview_flutter_wkwebview:
+    dependency: transitive
+    description:
+      name: webview_flutter_wkwebview
+      sha256: d4034901d96357beb1b6717ebf7d583c88e40cfc6eb85fe76dd1bf0979a9f251
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.16.0"
   xdg_directories:
     dependency: transitive
     description:
