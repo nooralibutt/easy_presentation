@@ -1,3 +1,7 @@
+## 2.0.0
+* Upgraded example project
+* Upgraded dependencies
+
 ## 1.0.3
 * Update [OptimizedCachedImage] to [CachedNetworkImage]
 * Fix Swipe Action Callback Bug
