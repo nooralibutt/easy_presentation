@@ -17,63 +17,59 @@ class CoverDetailScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         top: false,
-        child: Column(
-          children: [
-            Expanded(
-              child: CustomScrollView(
-                slivers: [
-                  SliverAppBar(
-                    pinned: true,
-                    expandedHeight: 200,
-                    leading: BackButton(
-                      onPressed: () {
-                        controller.onTapEvent
-                            ?.call(context, PresentationEventAction.backTap);
-                        Navigator.pop(context);
-                      },
-                    ),
-                    flexibleSpace: FlexibleSpaceBar(
-                      titlePadding: const EdgeInsets.only(bottom: 12, left: 72),
-                      title: Text(data.title),
-                      background: Stack(
-                        fit: StackFit.expand,
-                        children: [
-                          ImageBuilder(
-                            imgPath: data.imgSrc,
-                            fit: BoxFit.cover,
-                          ),
-                          Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Container(
-                              decoration: BoxDecoration(boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(.82),
-                                  spreadRadius: 50.0,
-                                  blurRadius: 100,
-                                ),
-                              ]),
-                              child: Container(height: 10),
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              pinned: true,
+              expandedHeight: 200,
+              leading: BackButton(
+                onPressed: () {
+                  controller.onTapEvent?.call(
+                    context,
+                    PresentationEventAction.backTap,
+                  );
+                  Navigator.pop(context);
+                },
+              ),
+              flexibleSpace: FlexibleSpaceBar(
+                titlePadding: const EdgeInsets.only(bottom: 12, left: 72),
+                title: Text(data.title),
+                background: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    ImageBuilder(imgPath: data.imgSrc, fit: BoxFit.cover),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(.82),
+                              spreadRadius: 50.0,
+                              blurRadius: 100,
                             ),
-                          ),
-                        ],
-                      ),
-                      centerTitle: false,
-                    ),
-                  ),
-                  SliverToBoxAdapter(
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 10),
-                        if (controller.placementBuilder != null)
-                          controller.placementBuilder!(
-                              context, PresentationPlacement.coverDetailBottom),
-                        Padding(
-                          padding:
-                              const EdgeInsets.fromLTRB(12.0, 0.0, 12.0, 12.0),
-                          child: DetailMarkdown(text: data.detailText ?? ''),
+                          ],
                         ),
-                      ],
+                        child: Container(height: 10),
+                      ),
                     ),
+                  ],
+                ),
+                centerTitle: false,
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  const SizedBox(height: 10),
+                  if (controller.placementBuilder != null)
+                    controller.placementBuilder!(
+                      context,
+                      PresentationPlacement.coverDetailBottom,
+                    ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(12.0, 0.0, 12.0, 12.0),
+                    child: DetailMarkdown(text: data.detailText ?? ''),
                   ),
                 ],
               ),

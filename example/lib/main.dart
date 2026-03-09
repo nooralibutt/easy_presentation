@@ -14,9 +14,13 @@ Future<void> main() async {
     fbTestMode: true,
     unityTestMode: true,
     admobConfiguration: RequestConfiguration(
-        testDeviceIds: [], maxAdContentRating: MaxAdContentRating.pg),
-    adMobAdRequest:
-        const AdRequest(nonPersonalizedAds: false, keywords: <String>[]),
+      testDeviceIds: [],
+      maxAdContentRating: MaxAdContentRating.pg,
+    ),
+    adMobAdRequest: const AdRequest(
+      nonPersonalizedAds: false,
+      keywords: <String>[],
+    ),
   );
 
   runApp(const MyApp());
@@ -29,9 +33,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -107,10 +109,16 @@ class _MyHomePageState extends State<MyHomePage> {
         return Container(height: 50, width: double.infinity, color: Colors.red);
       case PresentationPlacement.tabDetailBottom:
         return Container(
-            height: 50, width: double.infinity, color: Colors.green);
+          height: 50,
+          width: double.infinity,
+          color: Colors.green,
+        );
       case PresentationPlacement.youtubeDetailBottom:
         return Container(
-            height: 50, width: double.infinity, color: Colors.orange);
+          height: 50,
+          width: double.infinity,
+          color: Colors.orange,
+        );
       default:
         return const SizedBox();
     }
@@ -118,7 +126,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   /// You can handle every action performed by the user like this
   void _handleEventActions(
-      BuildContext context, PresentationEventAction event) {
+    BuildContext context,
+    PresentationEventAction event,
+  ) {
     if (event == PresentationEventAction.cardTap) {
       EasyAds.instance.showAd(AdUnitType.interstitial);
     } else if (event == PresentationEventAction.backTap) {
@@ -136,7 +146,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   /// Use this to load your markdown (.txt) files
   static Future<List<PresentationData>> loadAllData(
-      List<PresentationData> data) async {
+    List<PresentationData> data,
+  ) async {
     for (int i = 0; i < data.length; i++) {
       final category = data[i];
       if (category.detailText != null &&

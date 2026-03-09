@@ -1,3 +1,7 @@
+## 26.0.0
+* Upgraded example project
+* Upgraded dependencies
+
 ## 2.0.0
 * Upgraded example project
 * Upgraded dependencies

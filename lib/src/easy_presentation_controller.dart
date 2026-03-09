@@ -1,10 +1,10 @@
 import 'package:easy_presentation/src/models/presentation_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 
 typedef PlacementBuilder = Widget Function(BuildContext, PresentationPlacement);
-typedef EventActionCallback = void Function(
-    BuildContext, PresentationEventAction);
+typedef EventActionCallback =
+    void Function(BuildContext, PresentationEventAction);
 
 class EasyPresentationController extends InheritedWidget {
   const EasyPresentationController({
