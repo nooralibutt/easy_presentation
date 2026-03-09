@@ -43,7 +43,7 @@ class DetailMarkdown extends StatelessWidget {
   ) {
     return CachedNetworkImage(
       imageUrl: uri.toString(),
-      placeholder: (_, __) => const WallpaperPlaceholder(),
+      placeholder: (_, _) => const WallpaperPlaceholder(),
       fit: BoxFit.cover,
       width: MediaQuery.of(context).size.width,
       height: 250,

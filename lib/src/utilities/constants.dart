@@ -9,21 +9,21 @@ class ImageBuilder extends StatelessWidget {
   final BoxFit fit;
   final double? width;
   final double? height;
-  const ImageBuilder(
-      {Key? key,
-      required this.imgPath,
-      required this.fit,
-      this.width,
-      this.height})
-      : super(key: key);
+  const ImageBuilder({
+    super.key,
+    required this.imgPath,
+    required this.fit,
+    this.width,
+    this.height,
+  });
 
   @override
   Widget build(BuildContext context) {
     if (imgPath.startsWith('http')) {
       return CachedNetworkImage(
         imageUrl: imgPath,
-        placeholder: (_, __) => const WallpaperPlaceholder(),
-        errorWidget: (_, __, ___) => const WallpaperPlaceholder(),
+        placeholder: (_, _) => const WallpaperPlaceholder(),
+        errorWidget: (_, _, _) => const WallpaperPlaceholder(),
         fit: fit,
         width: width,
         height: height,
@@ -35,12 +35,16 @@ class ImageBuilder extends StatelessWidget {
       fit: BoxFit.cover,
       width: double.infinity,
       height: double.infinity,
-      loadingBuilder: (BuildContext context, Widget child,
-          ImageChunkEvent? loadingProgress) {
-        if (loadingProgress == null) return child;
+      loadingBuilder:
+          (
+            BuildContext context,
+            Widget child,
+            ImageChunkEvent? loadingProgress,
+          ) {
+            if (loadingProgress == null) return child;
 
-        return const WallpaperPlaceholder();
-      },
+            return const WallpaperPlaceholder();
+          },
     );
   }
 }

@@ -88,7 +88,7 @@ class EasyPresentationApp extends StatelessWidget {
     );
   }
 
-  Route _generatePage(child) => MaterialPageRoute(builder: (_) => child);
+  Route _generatePage(Widget child) => MaterialPageRoute(builder: (_) => child);
 
   static void launchApp(
     BuildContext context, {

@@ -7,10 +7,7 @@ import 'package:flutter/material.dart';
 class BlurBackgroundWidget extends StatelessWidget {
   final Widget child;
 
-  const BlurBackgroundWidget({
-    required this.child,
-    Key? key,
-  }) : super(key: key);
+  const BlurBackgroundWidget({required this.child, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +26,7 @@ class BlurBackgroundWidget extends StatelessWidget {
         ),
         BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
-          child: Container(
-            color: Colors.black.withOpacity(0.4),
-            child: child,
-          ),
+          child: Container(color: Colors.black.withAlpha(100), child: child),
         ),
       ],
     );
