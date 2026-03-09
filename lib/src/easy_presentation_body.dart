@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 class EasyPresentationBody extends StatefulWidget {
   static const String routeName = "/EasyPresentationBody";
 
-  const EasyPresentationBody({Key? key}) : super(key: key);
+  const EasyPresentationBody({super.key});
 
   @override
   State<EasyPresentationBody> createState() => _EasyPresentationBodyState();
@@ -26,6 +26,7 @@ class _EasyPresentationBodyState extends State<EasyPresentationBody> {
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
           children: [
             if (controller.topSafeArea)
               SizedBox(height: MediaQuery.of(context).padding.top),
@@ -33,12 +34,15 @@ class _EasyPresentationBodyState extends State<EasyPresentationBody> {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: HomeHeaderText(
-                    leadingText: controller.leadingTitle,
-                    name: controller.title!),
+                  leadingText: controller.leadingTitle,
+                  name: controller.title!,
+                ),
               ),
             if (controller.placementBuilder != null)
               controller.placementBuilder!(
-                  context, PresentationPlacement.presentationCategoryTop),
+                context,
+                PresentationPlacement.presentationCategoryTop,
+              ),
             ..._buildCards(context, controller),
             const SizedBox(height: 20),
           ],
@@ -48,9 +52,12 @@ class _EasyPresentationBodyState extends State<EasyPresentationBody> {
   }
 
   List<Widget> _buildCards(
-      BuildContext context, EasyPresentationController controller) {
-    final List<Widget> widgetList =
-        controller.presentationData.map<Widget>((category) {
+    BuildContext context,
+    EasyPresentationController controller,
+  ) {
+    final List<Widget> widgetList = controller.presentationData.map<Widget>((
+      category,
+    ) {
       return PresentationCard(
         title: category.title,
         imgSrc: category.imgSrc,
@@ -61,7 +68,9 @@ class _EasyPresentationBodyState extends State<EasyPresentationBody> {
   }
 
   void _onPressDetail(
-      PresentationData data, EasyPresentationController controller) {
+    PresentationData data,
+    EasyPresentationController controller,
+  ) {
     controller.onTapEvent?.call(context, PresentationEventAction.cardTap);
 
     String routeToPush;

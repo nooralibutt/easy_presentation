@@ -10,21 +10,22 @@ class PresentationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery.sizeOf(context);
     return Container(
       margin: const EdgeInsets.all(16.0),
       height: 200,
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: kBorderRadius,
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black45,
-              offset: Offset(2, 2),
-              blurRadius: 3,
-              spreadRadius: 3,
-            )
-          ]),
+        color: Colors.white,
+        borderRadius: kBorderRadius,
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black45,
+            offset: Offset(2, 2),
+            blurRadius: 3,
+            spreadRadius: 3,
+          ),
+        ],
+      ),
       child: ClipRRect(
         borderRadius: kBorderRadius,
         child: Stack(
@@ -33,18 +34,20 @@ class PresentationCard extends StatelessWidget {
               imgPath: imgSrc!,
               fit: BoxFit.cover,
               width: size.width,
-              height: size.height,
+              height: 200,
             ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                decoration: BoxDecoration(boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(.82),
-                    spreadRadius: 50.0,
-                    blurRadius: 100,
-                  ),
-                ]),
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(.82),
+                      spreadRadius: 50.0,
+                      blurRadius: 100,
+                    ),
+                  ],
+                ),
                 child: const SizedBox(width: double.infinity, height: 2),
               ),
             ),
@@ -54,10 +57,9 @@ class PresentationCard extends StatelessWidget {
               right: 20,
               child: Text(
                 title!,
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineSmall!
-                    .copyWith(color: Colors.white),
+                style: Theme.of(
+                  context,
+                ).textTheme.headlineSmall!.copyWith(color: Colors.white),
               ),
             ),
             Material(

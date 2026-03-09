@@ -4,13 +4,13 @@ final jsonWithMarkdown = [
   {
     "title": "Tips and Tricks",
     "imgSrc": "assets/images/home/tips.jpg",
-    "detailText": "assets/data/tips.txt"
+    "detailText": "assets/data/tips.txt",
   },
   {
     "title": "Diamonds",
     "imgSrc": "assets/images/home/tips.jpg",
-    "youtubeLink": "https://youtu.be/YGbiPnxUG9U",
-    "detailText": "assets/data/tips.txt"
+    "youtubeLink": "https://youtu.be/WEpvVxl6iWM?si=8g2JEJeZ1TFruQcP",
+    "detailText": "assets/data/tips.txt",
   },
   {
     "title": "Vehicles",
@@ -19,14 +19,14 @@ final jsonWithMarkdown = [
       {
         "title": "Jeep",
         "imgSrc": "assets/images/vehicles/image16.png",
-        "detailText": "assets/data/vehicles/Jeep.txt"
+        "detailText": "assets/data/vehicles/Jeep.txt",
       },
       {
         "title": "Motorcycle",
         "imgSrc": "assets/images/vehicles/image30.png",
-        "detailText": "assets/data/vehicles/Motorcycle.txt"
-      }
-    ]
+        "detailText": "assets/data/vehicles/Motorcycle.txt",
+      },
+    ],
   },
   {
     "title": "Characters",
@@ -35,15 +35,15 @@ final jsonWithMarkdown = [
       {
         "title": "Captain",
         "imgSrc": "assets/images/characters/image7.jpg",
-        "detailText": "assets/data/characters/K ‘CAPTAIN BOOYAH.txt"
+        "detailText": "assets/data/characters/K ‘CAPTAIN BOOYAH.txt",
       },
       {
         "title": "LUQUETA",
         "imgSrc": "assets/images/characters/image19.jpg",
-        "detailText": "assets/data/characters/LUQUETA.txt"
-      }
-    ]
-  }
+        "detailText": "assets/data/characters/LUQUETA.txt",
+      },
+    ],
+  },
 ];
 
 final jsonMockData = [
@@ -72,8 +72,8 @@ final jsonMockData = [
         "title": "Motorcycle",
         "imgSrc": "assets/images/vehicles/image30.png",
         "detailText": "Lorem Ipsum is simply dummy text ...",
-      }
-    ]
+      },
+    ],
   },
   {
     "title": "Characters",
@@ -89,9 +89,9 @@ final jsonMockData = [
         "title": "LUQUETA",
         "imgSrc": "assets/images/characters/image19.jpg",
         "detailText": "Lorem Ipsum is simply dummy text ...",
-      }
-    ]
-  }
+      },
+    ],
+  },
 ];
 
 final modelData = [

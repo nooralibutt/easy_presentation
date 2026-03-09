@@ -30,14 +30,15 @@ class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
 
     return Theme(
       data: Theme.of(context).copyWith(
-          textTheme: Theme.of(context).textTheme.apply(
-              displayColor: Theme.of(context).colorScheme.background,
-              bodyColor: Theme.of(context).colorScheme.background)),
+        textTheme: Theme.of(context).textTheme.apply(
+          displayColor: Theme.of(context).colorScheme.background,
+          bodyColor: Theme.of(context).colorScheme.background,
+        ),
+      ),
       child: YoutubePlayerBuilder(
-          player: YoutubePlayer(
-            controller: controller,
-          ),
-          builder: (context, player) => player),
+        player: YoutubePlayer(controller: controller),
+        builder: (context, player) => player,
+      ),
     );
   }
 
@@ -59,8 +60,10 @@ class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
                     alignment: Alignment.topLeft,
                     child: BackButton(
                       onPressed: () {
-                        controller.onTapEvent
-                            ?.call(context, PresentationEventAction.backTap);
+                        controller.onTapEvent?.call(
+                          context,
+                          PresentationEventAction.backTap,
+                        );
                         Navigator.pop(context);
                       },
                     ),
@@ -75,7 +78,9 @@ class _YoutubeDetailScreenState extends State<YoutubeDetailScreen> {
                     const SizedBox(height: 10),
                     if (controller.placementBuilder != null)
                       controller.placementBuilder!(
-                          context, PresentationPlacement.youtubeDetailBottom),
+                        context,
+                        PresentationPlacement.youtubeDetailBottom,
+                      ),
                     Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: DetailMarkdown(text: widget.data.detailText),

@@ -14,7 +14,7 @@ class DetailMarkdown extends StatelessWidget {
     final markDownStyle = EasyPresentationController.of(
       context,
     ).markdownStyleSheet;
-    return Markdown(
+    return MarkdownBody(
       data: text ?? ' ',
       imageBuilder: (Uri uri, String? title, String? alt) =>
           markdownImageBuilder(uri, title, alt, context),
